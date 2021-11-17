@@ -1,0 +1,38 @@
+Curl Payload Examples for Create User, Get Users, Update User, & Delete User
+
+
+Create User Examples (returns error if email is not unique)
+
+curl -X POST http://127.0.0.1:8000/api/users/create -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"firstName\":\"Nader\",\"lastName\":\"Banna\",\"email\":\"naderb@gmail.com\"}"
+
+curl -X POST http://127.0.0.1:8000/api/users/create -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"firstName\":\"Jeff\",\"lastName\":\"Forman\",\"email\":\"jforman@gmail.com\"}"
+
+curl -X POST http://127.0.0.1:8000/api/users/create -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"firstName\":\"Greg\",\"lastName\":\"Alfred\",\"email\":\"galfred@gmail.com\"}"
+
+curl -X POST http://127.0.0.1:8000/api/users/create -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"firstName\":\"Dev\",\"lastName\":\"Patel\",\"email\":\"dpatel@gmail.com\"}"
+
+
+
+Get User Example
+
+curl http://127.0.0.1:8000/api/users
+
+
+
+Update User Examples (requires minimum of 1 field to trigger user update. returns error if email is not unique)
+
+curl -X POST http://127.0.0.1:8000/api/users/update/4 -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"email\":\"dev321@gmail.com\"}"
+
+curl -X POST http://127.0.0.1:8000/api/users/update/5 -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"firstName\":\"Henry\",\"lastName\":\"Getter\"}"
+
+
+
+Delete User Example
+
+curl -X DELETE http://127.0.0.1:8000/api/users/delete/8
+
+
+
+
+
+
