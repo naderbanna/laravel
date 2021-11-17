@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\myUser;
+use App\Http\Controllers\UserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/users', [UserApiController::class, 'index']);
+
+//TODO: make check for unique email
+Route::post('/users/create', [UserApiController::class, 'create']);
+
+//TODO: modify to allow minimum of 1 field to update, instead of requiring all
+Route::post('users/update/{user}', [UserApiController::class, 'update']);
+
+Route::delete('/users/delete/{user}', [UserApiController::class, 'delete']);
